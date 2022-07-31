@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+    <h1 id="search-heading">Search Result <span style="color: gray;"> > </span> <%= searchQuery.toUpperCase() %></h1>
+    <% data.results.forEach((result) => { %>
+        <div class="card mb-5 w-75">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/<%= result.poster_path %>" class="card-img img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2 class="card-title"><%= result.title %></h2>
+                        <hr>
+                        <p class="card-text"><%= result.overview %></p>
+                        <hr>
+                        <br>
+                        <p class="card-text"><b>Date Published:</b> <%= result.release_date %> </p>
+                        <p class="card-text"><b>Total Votes:</b> <%= result.vote_count %> </p>
+                        <p class="card-text"><b>Average Rating:</b> <%= result.vote_average %> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+    
+</body>
+</html>
